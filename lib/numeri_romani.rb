@@ -12,7 +12,7 @@ module NumeriRomani
     end
 
     def to_decimal(roman_number)
-      raise ArgumentError unless roman_number =~ /^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$/
+      raise ArgumentError unless roman_number.match?(/^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$/)
       roman_number.scan(/#{DIGITS.keys.join('|')}/).sum { |let| DIGITS[let] }
     end
   end
