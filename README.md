@@ -1,6 +1,6 @@
 # NumeriRomani
 
-Simple library for conversion integers to roman numerals and roman numerals to integers.
+Numeri Romani (lat. roman numerals) - simple library for conversion integers to roman numerals and roman numerals to integers.
 
 ## Installation
 
@@ -37,6 +37,16 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
  3) Commit your changes (git commit -am 'Add some feature')
  4) Push to the branch (git push origin my-new-feature)
  5) Create a new Pull Request
+
+Contributions are welcome!
+
+Here's some ideas (maybe also a roadmap for possible future versions of the library):
+
+* **Extend for big numbers.** Using Apostrophus/Vinculum system.(For instance: CCC|ƆƆƆ|ƆƆƆ, C̅X̅X̅I̅I̅I̅CXXIII)
+
+* **Extend for fractions**. For example S: - 2/3, S:·: - 11/12
+
+* **Add Validation module**.
 
 ## License
 
