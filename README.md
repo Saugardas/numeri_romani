@@ -1,8 +1,6 @@
 # NumeriRomani
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/numeri_romani`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Simple library for conversion integers to roman numerals and roman numerals to integers.
 
 ## Installation
 
@@ -21,8 +19,10 @@ Or install it yourself as:
     $ gem install numeri_romani
 
 ## Usage
-
-TODO: Write usage instructions here
+```ruby
+NumeriRomani.to_roman(521) # => 'DXXI'
+NumeriRomani.to_decimal('DXXI') # => 521
+````
 
 ## Development
 
@@ -32,8 +32,11 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/numeri_romani.
-
+ 1) Fork it
+ 2) Create your feature branch (git checkout -b my-new-feature)
+ 3) Commit your changes (git commit -am 'Add some feature')
+ 4) Push to the branch (git push origin my-new-feature)
+ 5) Create a new Pull Request
 
 ## License
 
