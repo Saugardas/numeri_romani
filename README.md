@@ -22,7 +22,14 @@ Or install it yourself as:
 ## Usage
 ```ruby
 NumeriRomani.to_roman(521) # => 'DXXI'
+NumeriRomani.to_roman(125_202) # => 'C̅X̅X̅V̅CCII'
+NumeriRomani.to_roman(-1) # => ArgumentError: Number should be in interval [1..3_999_999]
+NumeriRomani.to_roman(10**7) # => ArgumentError: Number should be in interval [1..3_999_999]
+```
+```ruby
 NumeriRomani.to_decimal('DXXI') # => 521
+NumeriRomani.to_decimal('M̅M̅C̅C̅C̅X̅L̅V̅DCLXXVIII') # => 2_345_678
+NumeriRomani.to_decimal('IIIXC') # => ArgumentError: Not valid roman number
 ````
 
 ## Development
