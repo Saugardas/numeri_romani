@@ -6,7 +6,11 @@ RSpec.describe NumeriRomani do
   end
 
   it 'should convert to roman and back' do
-    (1..3999).each do |number|
+    (1..3_999).each do |number|
+      roman = NumeriRomani.to_roman(number)
+      expect(NumeriRomani.to_decimal(roman)).to eq number
+    end
+    4_000.step(3_999_999, 100).each do |number|
       roman = NumeriRomani.to_roman(number)
       expect(NumeriRomani.to_decimal(roman)).to eq number
     end
@@ -15,11 +19,12 @@ RSpec.describe NumeriRomani do
   describe '.to_roman' do
     it 'should raise error for invalid data' do
       expect { NumeriRomani.to_roman(0) }.to raise_error(ArgumentError)
-      expect { NumeriRomani.to_roman(4000) }.to raise_error(ArgumentError)
+      expect { NumeriRomani.to_roman('string') }.to raise_error(ArgumentError)
+      expect { NumeriRomani.to_roman(4_000_000) }.to raise_error(ArgumentError)
       expect { NumeriRomani.to_roman(-1) }.to raise_error(ArgumentError)
     end
 
-    it 'should convert correctly' do
+    it 'should convert correctly in [1..3_999]' do
       expect(NumeriRomani.to_roman(1)).to eq 'I'
       expect(NumeriRomani.to_roman(2)).to eq 'II'
       expect(NumeriRomani.to_roman(3)).to eq 'III'
@@ -32,9 +37,17 @@ RSpec.describe NumeriRomani do
       expect(NumeriRomani.to_roman(99)).to eq 'XCIX'
       expect(NumeriRomani.to_roman(444)).to eq 'CDXLIV'
       expect(NumeriRomani.to_roman(999)).to eq 'CMXCIX'
-      expect(NumeriRomani.to_roman(1001)).to eq 'MI'
-      expect(NumeriRomani.to_roman(2509)).to eq 'MMDIX'
-      expect(NumeriRomani.to_roman(3999)).to eq 'MMMCMXCIX'
+      expect(NumeriRomani.to_roman(1_001)).to eq 'MI'
+      expect(NumeriRomani.to_roman(2_509)).to eq 'MMDIX'
+      expect(NumeriRomani.to_roman(3_999)).to eq 'MMMCMXCIX'
+    end
+
+    it 'should convert correctly numbers in [4_000..3_999_999]' do
+      expect(NumeriRomani.to_roman(4_000)).to eq 'I̅V̅'
+      expect(NumeriRomani.to_roman(99_001)).to eq 'X̅C̅I̅X̅I'
+      expect(NumeriRomani.to_roman(173_012)).to eq 'C̅L̅X̅X̅MMMXII'
+      expect(NumeriRomani.to_roman(2_345_678)).to eq 'M̅M̅C̅C̅C̅X̅L̅V̅DCLXXVIII'
+      expect(NumeriRomani.to_roman(2_151_119)).to eq 'M̅M̅C̅L̅MCXIX'
     end
   end
 
@@ -42,6 +55,8 @@ RSpec.describe NumeriRomani do
     it 'should raise error for invalid data' do
       expect { NumeriRomani.to_decimal('qwerty') }.to raise_error(ArgumentError)
       expect { NumeriRomani.to_decimal('IDDM') }.to raise_error(ArgumentError)
+      expect { NumeriRomani.to_decimal('II̅X̅DDM') }.to raise_error(ArgumentError)
+      expect { NumeriRomani.to_decimal('M̅L̅M̅C̅L̅') }.to raise_error(ArgumentError)
     end
 
     it 'should convert correctly' do
@@ -56,8 +71,12 @@ RSpec.describe NumeriRomani do
       expect(NumeriRomani.to_decimal('CXI')).to eq 111
       expect(NumeriRomani.to_decimal('CDXLIX')).to eq 449
       expect(NumeriRomani.to_decimal('CMLI')).to eq 951
-      expect(NumeriRomani.to_decimal('MMXVII')).to eq 2017
-      expect(NumeriRomani.to_decimal('MMMCMXCVIII')).to eq 3998
+      expect(NumeriRomani.to_decimal('MMXVII')).to eq 2_017
+      expect(NumeriRomani.to_decimal('MMMCMXCVIII')).to eq 3_998
+      expect(NumeriRomani.to_decimal('I̅V̅')).to eq 4_000
+      expect(NumeriRomani.to_decimal('X̅X̅M')).to eq 21_000
+      expect(NumeriRomani.to_decimal('C̅V̅MMMDLXIII')).to eq 108_563
+      expect(NumeriRomani.to_decimal('M̅C̅C̅X̅X̅X̅I̅V̅DLXVII')).to eq 1_234_567
     end
   end
 end

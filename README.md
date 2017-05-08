@@ -1,6 +1,7 @@
 # NumeriRomani
 
 Numeri Romani (lat. roman numerals) - simple library for conversion integers to roman numerals and roman numerals to integers.
+Convert numbers within range of 1..3_999_999.
 
 ## Installation
 
@@ -42,9 +43,9 @@ Contributions are welcome!
 
 Here's some ideas (maybe also a roadmap for possible future versions of the library):
 
-* **Extend for big numbers.** Using Apostrophus/Vinculum system.(For instance: CCC|ƆƆƆ|ƆƆƆ, C̅X̅X̅I̅I̅I̅CXXIII)
+* **Add Apostrophus system for big numbers.** For instance: CCC|ƆƆƆ|ƆƆƆ (C̅X̅X̅MMMCXXIII)
 
-* **Extend for fractions**. For example S: - 2/3, S:·: - 11/12
+* **Extend for fractions**. For instance S: - 2/3, S:·: - 11/12
 
 * **Add Validation module**.
 
