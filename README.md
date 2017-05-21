@@ -1,7 +1,7 @@
 # NumeriRomani
 
-Numeri Romani (lat. roman numerals) - simple library for conversion integers to roman numerals and roman numerals to integers.
-Convert numbers within range of 1..3_999_999.
+Numeri Romani (*lat. roman numerals*) - simple library for conversion integers to roman numerals and roman numerals to integers.
+Convert numbers within range of [$$\frac{1}{12}$$; 3_999_999 $$\frac{11}{12}$$].
 
 ## Installation
 
@@ -31,6 +31,30 @@ NumeriRomani.to_decimal('DXXI') # => 521
 NumeriRomani.to_decimal('M̅M̅C̅C̅C̅X̅L̅V̅DCLXXVIII') # => 2_345_678
 NumeriRomani.to_decimal('IIIXC') # => ArgumentError: Not valid roman number
 ````
+Fractions:
+
+| Roman numeral|Fraction  |
+|:------------:| :-------:|
+| S            |6/12 (1/2)|
+| ⁙ (*****)    |      5/12|
+| ∷ (****)     |4/12 (1/3)|
+| ∴ (***)      |3/12 (1/4)|
+| ∶ (**)       |2/12(1/6) |
+| ⋅ (*)        |      1/12|
+
+```ruby
+NumeriRomani.to_decimal('IS') # => (3/2)
+NumeriRomani.to_decimal('S⁙') # => (11/12)
+NumeriRomani.to_decimal('S*****') # => (11/12)
+```
+
+```ruby
+NumeriRomani.to_roman(3/4r) # => 'S∴'
+NumeriRomani.to_roman(5.5) # => 'VS'
+NumeriRomani.to_roman(10.11) # => 'X⋅' (0.11 ~ 1/12)
+NumeriRomani.to_roman(10.13) # => 'X∶' (0.13 ~ 2/12)
+NumeriRomani.to_roman(12.77) # => 'XIIS∷' (0.77 ~ 10/12)
+```
 
 ## Development
 
@@ -51,8 +75,6 @@ Contributions are welcome!
 Here's some ideas (maybe also a roadmap for possible future versions of the library):
 
 * **Add Apostrophus system for big numbers.** For instance: CCC|ƆƆƆ|ƆƆƆ (C̅X̅X̅MMMCXXIII)
-
-* **Extend for fractions**. For instance S: - 2/3, S:·: - 11/12
 
 * **Add Validation module**.
 

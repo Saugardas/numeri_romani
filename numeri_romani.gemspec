@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Vasiliy Petrov"]
   spec.email         = ["saugardas@yandex.ru"]
 
-  spec.summary       = %q{Conversion between Decimals and Roman Numbers}
+  spec.summary       = %q{Conversion between Decimals and Roman numbers in interval (1/12)-3_999_999(11/12)}
   spec.description   = %q{Conversion between Decimals and Roman Numbers}
   spec.homepage      = "https://github.com/saugardas/numeri_romani"
   spec.license       = "MIT"
