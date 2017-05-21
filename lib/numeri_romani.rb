@@ -22,7 +22,7 @@ module NumeriRomani
     def to_decimal(roman_number)
       raise ArgumentError.new('Not valid roman number') unless roman_number.match?(REGEXP)
       result = roman_number.scan(/#{(DIGITS.keys + FRACTIONS.keys).join('|')}/).sum { |let| DIGITS[let] || FRACTIONS[let] }
-      result + roman_number.count('*') * 1/12r
+      roman_number.match?(/\*/) ? result + roman_number.count('*') * 1/12r : result
     end
   end
 end
