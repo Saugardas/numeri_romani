@@ -1,7 +1,7 @@
 # NumeriRomani
 
 Numeri Romani (*lat. roman numerals*) - simple library for conversion integers to roman numerals and roman numerals to integers.
-Convert numbers within range of [$$\frac{1}{12}$$; 3_999_999 $$\frac{11}{12}$$].
+Convert numbers within range of [1/12 .. 3_999_999(11/12)].
 
 ## Installation
 
