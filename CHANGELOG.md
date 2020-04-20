@@ -1,3 +1,6 @@
+## 0.3.4 - 2020-04-20
+- Update rake dependency due vulnerability issue
+
 ## 0.3.3 - 2017-05-21
 - Fix bug with conversion numbers without a fractional part
 
